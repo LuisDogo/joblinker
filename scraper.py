@@ -23,7 +23,7 @@ def get_job_info(job_url):
     job_types = []
     job_type_element = soup.find('li', {'class': 'job-details-jobs-unified-top-card__job-insight job-details-jobs-unified-top-card__job-insight--highlight'})
     if job_type_element:
-        spans = job_type_element.find_all('span')
+        spans = job_type_element.find_all('span', {'class' : "job-details-jobs-unified-top-card__job-insight-view-model-secondary"})
         for span in spans:
             text = span.get_text(strip=True)
             if text:  # Ensure that empty text is not added
